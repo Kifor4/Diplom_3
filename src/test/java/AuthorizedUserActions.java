@@ -35,6 +35,9 @@ public class AuthorizedUserActions extends BaseTest {
                 .setLoginFields(email, password)
                 .clickLoginButtonSuccessful()
                 .authClickProfileButton()
+                .checkUrl()
+                .clickFeedButtonButton()
+                .authClickProfileButton()
                 .checkUrl();
     }
 

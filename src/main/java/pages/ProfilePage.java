@@ -31,7 +31,12 @@ public class ProfilePage extends BasePage {
 
     @Step("Проверка, что пользователь находится в личном кабинете")
     public ProfilePage checkUrl() {
-        Assert.assertTrue("Пользователь не находится на странице входа", url().endsWith("/account/profile"));
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue("Пользователь не находится в личном кабинете", url().endsWith("/account/profile"));
         return page(ProfilePage.class);
     }
 }

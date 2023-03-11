@@ -11,13 +11,13 @@ public class BasePage {
     private SelenideElement profileButton;
 
     @Step("Клик по кнопке \"Личный кабинет\"")
-    public LoginPage noAuthClickProfileButton(){
+    public LoginPage noAuthClickProfileButton() {
         profileButton.click();
         return page(LoginPage.class);
     }
 
     @Step("Клик по кнопке \"Личный кабинет\"")
-    public ProfilePage authClickProfileButton(){
+    public ProfilePage authClickProfileButton() {
         profileButton.click();
         return page(ProfilePage.class);
     }

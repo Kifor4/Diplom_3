@@ -51,6 +51,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Успешная авторизация")
     public void positiveLogin() {
         try {
             Class po = Class.forName(startClass);

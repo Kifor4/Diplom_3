@@ -14,6 +14,8 @@ public class RegistrationPage extends BasePage {
     private List<SelenideElement> fields;
     @FindBy(xpath = ".//button[text() = 'Зарегистрироваться']")
     private SelenideElement registrationButton;
+    @FindBy(xpath = ".//a[text() = 'Войти']")
+    private SelenideElement loginLink;
     @FindBy(xpath = ".//p[text() = 'Некорректный пароль']")
     private SelenideElement invalidPasswordMessage;
 
@@ -35,6 +37,12 @@ public class RegistrationPage extends BasePage {
     public RegistrationPage clickRegistrationButtonUnsuccessful(){
         registrationButton.click();
         return page(RegistrationPage.class);
+    }
+
+    @Step("Клик по ссылке \"Войти\"")
+    public LoginPage clickLoginLink(){
+        loginLink.click();
+        return page(LoginPage.class);
     }
 
     @Step("Проверка появления сообщения о некорректности пароля")

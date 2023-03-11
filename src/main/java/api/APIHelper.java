@@ -8,10 +8,11 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class UserDeleter {
+public class APIHelper {
     private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
     private final String USER_URI = "/api/auth/user";
     private final String LOGIN_URI = "/api/auth/login";
+    private final String REGISTER_URI = "/api/auth/register";
 
     private RequestSpecification baseSpec() {
         return new RequestSpecBuilder()
@@ -32,6 +33,12 @@ public class UserDeleter {
                 .header("Authorization", accessToken)
                 .spec(baseSpec())
                 .delete(uri);
+    }
+
+    @Step("Регистрация пользователя по всем полям")
+    public Response registerUser(String email, String password, String name) {
+        String json = String.format("{ \"email\":  \"%s\", \"password\": \"%s\", \"name\": \"%s\"}", email, password, name);
+        return doPostRequest(REGISTER_URI, json);
     }
 
     @Step("Авторизация пользователя")

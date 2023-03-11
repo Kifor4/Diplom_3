@@ -1,4 +1,4 @@
-import api.UserDeleter;
+import api.APIHelper;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
@@ -56,7 +56,7 @@ public class RegistrationTests extends BaseTest {
     public void tearDown() {
         closeWebDriver();
         try {
-            new UserDeleter().deleteUserPool(email, password);
+            new APIHelper().deleteUserPool(email, password);
         } catch (Exception ignore) {
         }
     }

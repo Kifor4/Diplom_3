@@ -29,16 +29,31 @@ public class RegistrationTests extends BaseTest {
                 .noAuthClickProfileButton()
                 .clickRegistrationLink()
                 .setRegistrationFields(name, email, password)
-                .clickRegistrationButton()
+                .clickRegistrationButtonSuccessful()
                 .setLoginFields(email, password)
-                .clickLoginButton()
+                .clickLoginButtonSuccessful()
                 .authClickProfileButton()
                 .checkUserData(name, email);
     }
 
+    @Test
+    @DisplayName("Регистрация нового пользователя с паролем из 5-ти символов")
+    public void negativeAccountRegistration() {
+        password = password.substring(0, 5);
+        open(BASE_URL, BasePage.class)
+                .noAuthClickProfileButton()
+                .clickRegistrationLink()
+                .setRegistrationFields(name, email, password)
+                .clickRegistrationButtonUnsuccessful()
+                .checkInvalidPasswordMessage()
+                .noAuthClickProfileButton()
+                .setLoginFields(email, password)
+                .clickLoginButtonUnsuccessful()
+                .checkUrl();
+    }
+
     @After
     public void tearDown() {
-        System.out.println(email + "   " + password);
         closeWebDriver();
         try {
             new UserDeleter().deleteUserPool(email, password);

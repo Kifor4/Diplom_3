@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -20,27 +21,31 @@ public class LoginPage extends BasePage {
     private SelenideElement registrationLink;
 
     @Step("Заполнение полей формы входа")
-    public LoginPage setLoginFields(String email, String password){
+    public LoginPage setLoginFields(String email, String password) {
         sleep(500);
+        fields.get(0).sendKeys(Keys.CONTROL + "a");
+        fields.get(0).sendKeys(Keys.DELETE);
         fields.get(0).setValue(email);
+        fields.get(1).sendKeys(Keys.CONTROL + "a");
+        fields.get(1).sendKeys(Keys.DELETE);
         fields.get(1).setValue(password);
         return page(LoginPage.class);
     }
 
     @Step("Клик по кнопке \"Войти\"")
-    public ConstructorPage clickLoginButtonSuccessful(){
+    public ConstructorPage clickLoginButtonSuccessful() {
         loginButton.click();
         return page(ConstructorPage.class);
     }
 
     @Step("Клик по кнопке \"Войти\"")
-    public LoginPage clickLoginButtonUnsuccessful(){
+    public LoginPage clickLoginButtonUnsuccessful() {
         loginButton.click();
         return page(LoginPage.class);
     }
 
     @Step("Клик по ссылке \"Зарегистрироваться\"")
-    public RegistrationPage clickRegistrationLink(){
+    public RegistrationPage clickRegistrationLink() {
         registrationLink.click();
         return page(RegistrationPage.class);
     }

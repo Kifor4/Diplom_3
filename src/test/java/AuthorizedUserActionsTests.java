@@ -9,7 +9,8 @@ import pages.BasePage;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public class AuthorizedUserActions extends BaseTest {
+@DisplayName("Действия авторизованного пользователя")
+public class AuthorizedUserActionsTests extends BaseTest {
     private APIHelper helper;
     private String name;
     private String email;

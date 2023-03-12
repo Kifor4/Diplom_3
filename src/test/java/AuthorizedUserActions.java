@@ -5,9 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.BasePage;
-import pages.LoginPage;
-
-import java.lang.reflect.InvocationTargetException;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
@@ -43,7 +40,7 @@ public class AuthorizedUserActions extends BaseTest {
 
     @Test
     @DisplayName("Выход из учетной записи")
-    public void positiveConstructorTransaction() {
+    public void positiveExit() {
         open(BASE_URL, BasePage.class)
                 .noAuthClickProfileButton()
                 .setLoginFields(email, password)

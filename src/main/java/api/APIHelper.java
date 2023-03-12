@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class APIHelper {
-    private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
+    public static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
     private final String USER_URI = "/api/auth/user";
     private final String LOGIN_URI = "/api/auth/login";
     private final String REGISTER_URI = "/api/auth/register";

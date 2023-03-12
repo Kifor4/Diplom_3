@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class LoginPage extends BasePage {
@@ -20,11 +21,7 @@ public class LoginPage extends BasePage {
 
     @Step("Заполнение полей формы входа")
     public LoginPage setLoginFields(String email, String password){
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        sleep(500);
         fields.get(0).setValue(email);
         fields.get(1).setValue(password);
         return page(LoginPage.class);

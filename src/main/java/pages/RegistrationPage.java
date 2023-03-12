@@ -20,7 +20,7 @@ public class RegistrationPage extends BasePage {
     private SelenideElement invalidPasswordMessage;
 
     @Step("Заполнение полей формы регистрации")
-    public RegistrationPage setRegistrationFields(String name, String email, String password){
+    public RegistrationPage setRegistrationFields(String name, String email, String password) {
         fields.get(0).setValue(name);
         fields.get(1).setValue(email);
         fields.get(2).setValue(password);
@@ -28,19 +28,19 @@ public class RegistrationPage extends BasePage {
     }
 
     @Step("Клик по кнопке \"Зарегистрироваться\"")
-    public LoginPage clickRegistrationButtonSuccessful(){
+    public LoginPage clickRegistrationButtonSuccessful() {
         registrationButton.click();
         return page(LoginPage.class);
     }
 
     @Step("Клик по кнопке \"Зарегистрироваться\"")
-    public RegistrationPage clickRegistrationButtonUnsuccessful(){
+    public RegistrationPage clickRegistrationButtonUnsuccessful() {
         registrationButton.click();
         return page(RegistrationPage.class);
     }
 
     @Step("Клик по ссылке \"Войти\"")
-    public LoginPage clickLoginLink(){
+    public LoginPage clickLoginLink() {
         loginLink.click();
         return page(LoginPage.class);
     }

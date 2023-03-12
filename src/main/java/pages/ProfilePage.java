@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class ProfilePage extends BasePage {
@@ -17,7 +18,7 @@ public class ProfilePage extends BasePage {
     private SelenideElement exitButton;
 
     @Step("Клик по кнопке \"Выйти\"")
-    public LoginPage clickExitButton(){
+    public LoginPage clickExitButton() {
         exitButton.click();
         return page(LoginPage.class);
     }
@@ -31,11 +32,7 @@ public class ProfilePage extends BasePage {
 
     @Step("Проверка, что пользователь находится в личном кабинете")
     public ProfilePage checkUrl() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        sleep(500);
         Assert.assertTrue("Пользователь не находится в личном кабинете", url().endsWith("/account/profile"));
         return page(ProfilePage.class);
     }
